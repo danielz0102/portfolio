@@ -1,7 +1,54 @@
 ---
+import Mexico from "../icons/Mexico.astro"
+import TypeScript from "../icons/TypeScript.astro"
 import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout>
-  <h1>Hello, World!</h1>
+	<main>
+		<hgroup>
+			<h1>Daniel Zambrano</h1>
+			<h2>Software Developer</h2>
+		</hgroup>
+		<p>
+			I built frontend and backend applications with
+			<span class="tag">
+				<TypeScript size={16} />
+				TypeScript
+			</span>
+		</p>
+		<p>
+			I'm from México <span class="icon"><Mexico /></span> and I love computer
+			science and software engineering.
+		</p>
+	</main>
 </Layout>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	h2 {
+		color: var(--text-secondary);
+	}
+
+	.icon {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+
+	.tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding-inline: 4px 8px;
+		margin-inline: 4px;
+		border-radius: 4px;
+		background-color: #adcef1;
+		color: #032b56;
+		border: 1px solid #3178c6;
+	}
+</style>

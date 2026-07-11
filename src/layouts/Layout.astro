@@ -1,16 +1,16 @@
 ---
-import { Font } from "astro:assets";
+import { Font } from "astro:assets"
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<link rel="icon" href="/favicon.ico">
 		<Font cssVariable="--main-font" />
-		<meta name="generator" content={Astro.generator} />
+		<meta name="generator" content={Astro.generator}>
 		<title>Astro Basics</title>
 	</head>
 	<body>
@@ -20,17 +20,76 @@ import { Font } from "astro:assets";
 
 <style>
 	body {
-		--bg-color: oklch(18% 0.005 285.823);
-
 		font-family: var(--main-font);
-		margin: 16px;
-		background-color: var(--bg-color);
-		color: oklch(from var(--bg-color) calc(l + 0.77) c h);
+		padding: 16px;
+		background-color: var(--bg);
+		color: var(--text);
 	}
 </style>
 
 <style is:global>
-	h1, h2, h3, h4, h5, h6 {
+	:root {
+		--bg: oklch(18% 0.005 285.823);
+		--text: oklch(from var(--bg) calc(l + 0.77) c h);
+		--text-secondary: oklch(from var(--text) calc(l - 0.2) c h);
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	*:not(dialog) {
 		margin: 0;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			interpolate-size: allow-keywords;
+		}
+	}
+
+	body {
+		line-height: 1.5;
+	}
+
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-width: 100%;
+	}
+
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
+	}
+
+	p {
+		text-wrap: pretty;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-wrap: balance;
 	}
 </style>
