@@ -7,7 +7,10 @@ import GitHub from "../icons/GitHub.astro"
 interface Props {
 	title: string
 	description: string
-	image: ImageMetadata
+	image: {
+		data: ImageMetadata
+		left?: boolean
+	}
 	preview: string
 	github: string
 }
@@ -17,7 +20,11 @@ const { title, description, image, preview, github } = Astro.props
 
 <article>
 	<h3>{title}</h3>
-	<Image src={image} alt="" class="cover" />
+	<Image
+		src={image.data}
+		alt=""
+		class:list={["cover", image.left && "left" ]}
+	/>
 	<p>{description}</p>
 	<footer>
 		<a class="link" href={github} target="_blank" rel="noreferrer">
@@ -47,8 +54,11 @@ const { title, description, image, preview, github } = Astro.props
 	.cover {
 		max-height: 400px;
 		object-fit: cover;
-		object-position: 0% 0%;
 		border-radius: 8px;
+	}
+
+	.left {
+		object-position: 0% 0%;
 	}
 
 	p {

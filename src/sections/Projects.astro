@@ -1,5 +1,6 @@
 ---
 import linku from "../assets/linku.png"
+import shingekiMemo from "../assets/shingeki-memo.jpeg"
 import ProjectCard from "../components/ProjectCard.astro"
 ---
 
@@ -8,9 +9,16 @@ import ProjectCard from "../components/ProjectCard.astro"
 	<ProjectCard
 		title="Linku"
 		description="Chat app with authentication, profile customization, and real-time text and image messaging."
-		image={linku}
+		image={{data: linku, left: true}}
 		github="https://github.com/danielz0102/linku"
 		preview="https://linku-web-eight.vercel.app/"
+	/>
+	<ProjectCard
+		title="Shingeki Memo"
+		description="Attack on Titan anime memory card game."
+		image={{data: shingekiMemo }}
+		github="https://github.com/danielz0102/shingeki-memo"
+		preview="https://shingeki-memo.vercel.app/"
 	/>
 </section>
 
@@ -22,6 +30,6 @@ import ProjectCard from "../components/ProjectCard.astro"
 	section {
 		display: flex;
 		flex-direction: column;
-		gap: 16px;
+		gap: 32px;
 	}
 </style>
