@@ -1,29 +1,28 @@
 ---
-import ProjectCard from "../components/ProjectCard.astro"
 import Layout from "../layouts/Layout.astro"
 import Introduction from "../sections/Introduction.astro"
 ---
 
 <Layout>
 	<main>
-		<Introduction />
-		<section>
-			<h2>Projects</h2>
-			<ProjectCard
-				title="Linku"
-				description="Chat application"
-				link="https://linku-web-eight.vercel.app/"
-				github="https://github.com/danielz0102/linku"
-			/>
-		</section>
+		<div>
+			<Introduction />
+		</div>
 	</main>
 </Layout>
 
 <style>
 	main {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
+		& > div {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+		}
+
+		@media (width >= 600px) {
+			max-width: 600px;
+			margin-inline: auto;
+		}
 	}
 
 	h2 {
