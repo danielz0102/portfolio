@@ -18,22 +18,7 @@ import { Font } from "astro:assets"
 	</body>
 </html>
 
-<style>
-	body {
-		font-family: var(--main-font);
-		padding: 16px;
-		background-color: var(--bg);
-		color: var(--text);
-	}
-</style>
-
 <style is:global>
-	:root {
-		--bg: oklch(18% 0.005 285.823);
-		--text: oklch(from var(--bg) calc(l + 0.77) c h);
-		--text-secondary: oklch(from var(--text) calc(l - 0.2) c h);
-	}
-
 	*,
 	*::before,
 	*::after {
@@ -91,5 +76,22 @@ import { Font } from "astro:assets"
 	h5,
 	h6 {
 		text-wrap: balance;
+	}
+</style>
+
+<style is:global>
+	:root {
+		--bg: oklch(18% 0.005 285.823);
+		--text: oklch(from var(--bg) calc(l + 0.77) c h);
+		--text-secondary: oklch(from var(--text) calc(l - 0.2) c h);
+	}
+</style>
+
+<style>
+	body {
+		font-family: var(--main-font);
+		padding: 16px;
+		background-color: var(--bg);
+		color: var(--text);
 	}
 </style>
