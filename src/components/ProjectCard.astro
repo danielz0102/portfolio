@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets"
+import type { ImageMetadata } from "astro"
+import ExternalLink from "../icons/ExternalLink.astro"
+import GitHub from "../icons/GitHub.astro"
+
+interface Props {
+	title: string
+	description: string
+	image: ImageMetadata
+	preview: string
+	github: string
+}
+
+const { title, description, image, preview, github } = Astro.props
+---
+
+<article>
+	<h3>{title}</h3>
+	<Image src={image} alt="" class="cover" />
+	<p>{description}</p>
+	<footer>
+		<a class="link" href={github} target="_blank" rel="noreferrer">
+			<GitHub />
+			GitHub
+		</a>
+		<a class="link" href={preview} target="_blank" rel="noreferrer">
+			<ExternalLink />
+			Preview
+		</a>
+	</footer>
+</article>
+
+<style>
+	h3 {
+		font-size: 1.5rem;
+		font-weight: 500;
+	}
+
+	article {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		border-radius: 4px;
+	}
+
+	.cover {
+		max-height: 400px;
+		object-fit: cover;
+		object-position: 0% 0%;
+		border-radius: 8px;
+	}
+
+	p {
+		color: var(--text-secondary);
+	}
+
+	footer {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	.link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		text-decoration: none;
+		color: inherit;
+	}
+</style>

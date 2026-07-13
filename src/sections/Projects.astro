@@ -1,0 +1,27 @@
+---
+import linku from "../assets/linku.png"
+import ProjectCard from "../components/ProjectCard.astro"
+---
+
+<section>
+	<h2>Projects</h2>
+	<ProjectCard
+		title="Linku"
+		description="Chat app with authentication, profile customization, and real-time text and image messaging."
+		image={linku}
+		github="https://github.com/danielz0102/linku"
+		preview="https://linku-web-eight.vercel.app/"
+	/>
+</section>
+
+<style>
+	h2 {
+		font-size: 2rem;
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+</style>
