@@ -85,6 +85,14 @@ import { Font } from "astro:assets"
 		--text: oklch(from var(--bg) calc(l + 0.77) c h);
 		--text-secondary: oklch(from var(--text) calc(l - 0.2) c h);
 	}
+
+	.link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		text-decoration: none;
+		color: inherit;
+	}
 </style>
 
 <style>
