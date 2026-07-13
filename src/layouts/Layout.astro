@@ -92,13 +92,20 @@ import { Font } from "astro:assets"
 		gap: 8px;
 		text-decoration: none;
 		color: inherit;
+		background-color: oklch(from var(--bg) calc(l + 0.2) c h);
+		padding: 8px 16px;
+		border-radius: 8px;
+
+		&:hover {
+			opacity: 0.75;
+		}
 	}
 </style>
 
 <style>
 	body {
 		font-family: var(--main-font);
-		padding: 16px;
+		padding: 8px;
 		background-color: var(--bg);
 		color: var(--text);
 	}
