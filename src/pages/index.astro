@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Introduction from "../sections/Introduction.astro"
+import Projects from "../sections/Projects.astro"
 ---
 
 <Layout>
 	<main>
 		<div>
 			<Introduction />
+			<Projects />
 		</div>
 	</main>
 </Layout>
@@ -16,7 +18,7 @@ import Introduction from "../sections/Introduction.astro"
 		& > div {
 			display: flex;
 			flex-direction: column;
-			gap: 16px;
+			gap: 32px;
 		}
 
 		@media (width >= 600px) {
