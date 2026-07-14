@@ -2,6 +2,12 @@
 import linku from "../assets/linku.png"
 import shingekiMemo from "../assets/shingeki-memo.jpeg"
 import ProjectCard from "../components/ProjectCard.astro"
+import Express from "../icons/Express.astro"
+import Postgre from "../icons/Postgre.astro"
+import React from "../icons/React.astro"
+import SocketIo from "../icons/SocketIo.astro"
+import TailwindCSS from "../icons/Tailwind.astro"
+import TypeScript from "../icons/TypeScript.astro"
 ---
 
 <section>
@@ -13,6 +19,14 @@ import ProjectCard from "../components/ProjectCard.astro"
 			image={{data: linku, left: true}}
 			github="https://github.com/danielz0102/linku"
 			preview="https://linku-web-eight.vercel.app/"
+			stack={[
+				{name: "React", Icon: React},
+				{name: "TypeScript", Icon: TypeScript},
+				{name: "TailwindCSS", Icon: TailwindCSS},
+				{name: "PostgreSQL", Icon: Postgre},
+				{name: "Express", Icon: Express},
+				{name: "Socket.IO", Icon: SocketIo},
+			]}
 		/>
 		<ProjectCard
 			title="Shingeki Memo"
@@ -20,6 +34,9 @@ import ProjectCard from "../components/ProjectCard.astro"
 			image={{data: shingekiMemo }}
 			github="https://github.com/danielz0102/shingeki-memo"
 			preview="https://shingeki-memo.vercel.app/"
+			stack={[
+				{name: "React", Icon: React},
+			]}
 		/>
 	</div>
 </section>
