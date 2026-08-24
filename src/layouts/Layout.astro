@@ -14,6 +14,17 @@ import { Font } from "astro:assets"
 		<title>Daniel Zambrano</title>
 	</head>
 	<body>
+		<svg style="display: none;" aria-hidden="true">
+			<filter id="grain">
+				<feTurbulence
+					type="fractalNoise"
+					baseFrequency="0.65"
+					numOctaves="3"
+					stitchTiles="stitch"
+				/>
+				<feColorMatrix type="saturate" values="0" />
+			</filter>
+		</svg>
 		<slot />
 	</body>
 </html>
@@ -108,5 +119,15 @@ import { Font } from "astro:assets"
 		padding: 8px;
 		background-color: var(--bg);
 		color: var(--text);
+	}
+
+	body::before {
+		content: "";
+		position: fixed;
+		inset: 0;
+		filter: url(#grain);
+		opacity: 0.1;
+		pointer-events: none;
+		z-index: 999;
 	}
 </style>
