@@ -6,7 +6,7 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.fontsource(),
-			name: "Geist",
+			name: "Geist Mono",
 			cssVariable: "--main-font",
 		},
 	],
