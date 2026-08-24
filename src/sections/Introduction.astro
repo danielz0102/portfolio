@@ -1,21 +1,27 @@
 ---
+import type { Translations } from "../i18n"
 import GitHub from "../icons/GitHub.astro"
 import Mexico from "../icons/Mexico.astro"
 import TypeScript from "../icons/TypeScript.astro"
+
+interface Props {
+	t: Translations
+}
+
+const { t } = Astro.props
 ---
 
 <section>
 	<hgroup>
 		<h1>Daniel Zambrano</h1>
-		<p>Software Developer</p>
+		<p>{t.jobTitle}</p>
 	</hgroup>
 	<p>
-		I built frontend and backend applications with
+		{t.intro1}
 		<span class="icon typescript">
 			<TypeScript />
 		</span>
-		TypeScript. I'm from México <span class="icon"><Mexico /></span> and I love
-		computer science and software engineering.
+		{t.intro2} <span class="icon"><Mexico /></span> {t.intro3}
 	</p>
 	<footer>
 		<a

@@ -3,6 +3,7 @@ import cleverCss from "../assets/clever-css.png"
 import linku from "../assets/linku.png"
 import shingekiMemo from "../assets/shingeki-memo.webp"
 import ProjectCard from "../components/ProjectCard.astro"
+import type { Translations } from "../i18n"
 import Express from "../icons/Express.astro"
 import Postgre from "../icons/Postgre.astro"
 import React from "../icons/React.astro"
@@ -12,14 +13,20 @@ import TailwindCSS from "../icons/Tailwind.astro"
 import TypeScript from "../icons/TypeScript.astro"
 import Vitest from "../icons/Vitest.astro"
 import VsCode from "../icons/VsCode.astro"
+
+interface Props {
+	t: Translations
+}
+
+const { t } = Astro.props
 ---
 
 <section>
-	<h2>Projects</h2>
+	<h2>{t.projects}</h2>
 	<div>
 		<ProjectCard
 			title="Clever CSS"
-			description="VS Code extension for better CSS IntelliSense."
+			description={t.cleverCSSDesc}
 			image={{data: cleverCss }}
 			github="https://github.com/danielz0102/clever-css"
 			preview="https://marketplace.visualstudio.com/items?itemName=daniel-zambrano.clever-css"
@@ -27,10 +34,11 @@ import VsCode from "../icons/VsCode.astro"
 				{name: "TypeScript", Icon: TypeScript},
 				{name: "VS Code Extension Framework", Icon: VsCode},
 			]}
+			t={t}
 		/>
 		<ProjectCard
 			title="Linku"
-			description="Chat app with authentication, profile customization, and real-time text and image messaging."
+			description={t.linkuDesc}
 			image={{data: linku, left: true}}
 			github="https://github.com/danielz0102/linku"
 			preview="https://linku-web-eight.vercel.app/"
@@ -44,16 +52,18 @@ import VsCode from "../icons/VsCode.astro"
 				{name: "Socket.IO", Icon: SocketIo},
 				{name: "Vitest", Icon: Vitest},
 			]}
+			t={t}
 		/>
 		<ProjectCard
 			title="Shingeki Memo"
-			description="Attack on Titan anime memory card game."
+			description={t.shingekiMemoDesc}
 			image={{data: shingekiMemo }}
 			github="https://github.com/danielz0102/shingeki-memo"
 			preview="https://shingeki-memo.vercel.app/"
 			stack={[
 				{name: "React", Icon: React},
 			]}
+			t={t}
 		/>
 	</div>
 </section>

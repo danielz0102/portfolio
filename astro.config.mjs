@@ -10,4 +10,8 @@ export default defineConfig({
 			cssVariable: "--main-font",
 		},
 	],
+	i18n: {
+		locales: ["en", "es"],
+		defaultLocale: "en",
+	},
 })

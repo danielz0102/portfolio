@@ -1,0 +1,24 @@
+---
+import type { Locale } from "../i18n"
+import Mexico from "../icons/Mexico.astro"
+import USA from "../icons/USA.astro"
+
+const lang = Astro.currentLocale as Locale
+const switchTo = lang === "en" ? "es" : "en"
+---
+
+<a
+	href={switchTo === "en" ? "/" : "/es"}
+	class="lang-switch"
+	aria-label={lang === "en" ? "Cambiar a español" : "Switch to English"}
+>
+	{lang === "en" ? <USA /> : <Mexico />}
+</a>
+
+<style>
+	.lang-switch {
+		position: fixed;
+		top: 16px;
+		right: 16px;
+	}
+</style>

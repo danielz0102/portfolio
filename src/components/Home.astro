@@ -1,0 +1,41 @@
+---
+import { getTranslations, type Locale } from "../i18n"
+import Introduction from "../sections/Introduction.astro"
+import Projects from "../sections/Projects.astro"
+
+const locale = Astro.currentLocale as Locale
+const t = getTranslations(locale)
+---
+
+<main>
+	<div>
+		<Introduction t={t} />
+		<Projects t={t} />
+	</div>
+</main>
+
+<style>
+	main {
+		padding: 8px;
+
+		& > div {
+			display: flex;
+			flex-direction: column;
+			gap: 64px;
+
+			@media (width >= 600px) {
+				padding-block: 64px;
+			}
+		}
+
+		@media (width >= 600px) {
+			max-width: 600px;
+			margin-inline: auto;
+			padding: 0;
+		}
+	}
+
+	h2 {
+		color: var(--text-secondary);
+	}
+</style>

@@ -1,40 +1,8 @@
 ---
+import Home from "../components/Home.astro"
 import Layout from "../layouts/Layout.astro"
-import Introduction from "../sections/Introduction.astro"
-import Projects from "../sections/Projects.astro"
 ---
 
 <Layout>
-	<main>
-		<div>
-			<Introduction />
-			<Projects />
-		</div>
-	</main>
+	<Home />
 </Layout>
-
-<style>
-	main {
-		padding: 8px;
-
-		& > div {
-			display: flex;
-			flex-direction: column;
-			gap: 64px;
-
-			@media (width >= 600px) {
-				padding-block: 64px;
-			}
-		}
-
-		@media (width >= 600px) {
-			max-width: 600px;
-			margin-inline: auto;
-			padding: 0;
-		}
-	}
-
-	h2 {
-		color: var(--text-secondary);
-	}
-</style>

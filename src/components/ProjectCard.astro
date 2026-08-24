@@ -2,6 +2,7 @@
 import { Image } from "astro:assets"
 import type { ImageMetadata } from "astro"
 import type { AstroComponentFactory } from "astro/runtime/server/index.js"
+import type { Translations } from "../i18n"
 import ExternalLink from "../icons/ExternalLink.astro"
 import GitHub from "../icons/GitHub.astro"
 
@@ -15,9 +16,10 @@ interface Props {
 	stack: { name: string; Icon: AstroComponentFactory }[]
 	preview: string
 	github: string
+	t: Translations
 }
 
-const { title, description, image, stack, preview, github } = Astro.props
+const { title, description, image, stack, preview, github, t } = Astro.props
 ---
 
 <article>
@@ -43,7 +45,7 @@ const { title, description, image, stack, preview, github } = Astro.props
 		</a>
 		<a class="link" href={preview} target="_blank" rel="noreferrer">
 			<ExternalLink />
-			Preview
+			{t.preview}
 		</a>
 	</footer>
 </article>

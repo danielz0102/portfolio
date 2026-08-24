@@ -1,9 +1,10 @@
 ---
 import { Font } from "astro:assets"
+import LanguageSwitcher from "../components/LanguageSwitcher.astro"
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={Astro.currentLocale}>
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
@@ -14,6 +15,7 @@ import { Font } from "astro:assets"
 		<title>Daniel Zambrano</title>
 	</head>
 	<body>
+		<LanguageSwitcher />
 		<svg style="display: none;" aria-hidden="true">
 			<filter id="grain">
 				<feTurbulence
