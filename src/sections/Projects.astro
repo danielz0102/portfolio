@@ -1,4 +1,5 @@
 ---
+import cleverCss from "../assets/clever-css.png"
 import linku from "../assets/linku.png"
 import shingekiMemo from "../assets/shingeki-memo.webp"
 import ProjectCard from "../components/ProjectCard.astro"
@@ -14,6 +15,16 @@ import TypeScript from "../icons/TypeScript.astro"
 <section>
 	<h2>Projects</h2>
 	<div>
+		<ProjectCard
+			title="Clever CSS"
+			description="VS Code extension for better CSS IntelliSense."
+			image={{data: cleverCss }}
+			github="https://github.com/danielz0102/clever-css"
+			preview="https://marketplace.visualstudio.com/items?itemName=daniel-zambrano.clever-css"
+			stack={[
+				{name: "TypeScript", Icon: TypeScript},
+			]}
+		/>
 		<ProjectCard
 			title="Linku"
 			description="Chat app with authentication, profile customization, and real-time text and image messaging."
