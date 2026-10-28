@@ -1,4 +1,5 @@
 ---
+import Link from "../components/Link.astro"
 import type { Translations } from "../i18n"
 import GitHub from "../icons/GitHub.astro"
 import Mexico from "../icons/Mexico.astro"
@@ -11,52 +12,27 @@ interface Props {
 const { t } = Astro.props
 ---
 
-<section>
+<section class="flex flex-col gap-4">
 	<hgroup>
-		<h1>Daniel Zambrano</h1>
-		<p>{t.jobTitle}</p>
+		<h1 class="text-[clamp(2.25rem,5vw,3rem)]">Daniel Zambrano</h1>
+		<p class="text-foreground-secondary">{t.jobTitle}</p>
 	</hgroup>
 	<p>
 		{t.intro1}
-		<span class="icon typescript">
+		<span class="inline-block align-bottom py-1 px-2">
 			<TypeScript />
 		</span>
-		{t.intro2} <span class="icon"><Mexico /></span> {t.intro3}
+		{t.intro2} <span class="inline-block align-bottom"><Mexico /></span>
+		{t.intro3}
 	</p>
 	<footer>
-		<a
+		<Link
 			href="https://github.com/danielz0102"
 			target="_blank"
 			rel="noreferrer"
-			class="link"
 		>
 			<GitHub />
 			GitHub
-		</a>
+		</Link>
 	</footer>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-	}
-
-	h1 {
-		font-size: clamp(2.25rem, 5vw, 3rem);
-	}
-
-	hgroup p {
-		color: var(--text-secondary);
-	}
-
-	.icon {
-		display: inline-block;
-		vertical-align: bottom;
-	}
-
-	.typescript {
-		padding: 4px 8px;
-	}
-</style>

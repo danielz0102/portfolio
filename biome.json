@@ -35,6 +35,14 @@
 			}
 		}
 	},
+	"css": {
+		"formatter": {
+			"enabled": true
+		},
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
 	"html": {
 		"formatter": {
 			"enabled": true,

@@ -7,35 +7,9 @@ const locale = Astro.currentLocale as Locale
 const t = getTranslations(locale)
 ---
 
-<main>
-	<div>
+<main class="p-2 md:mx-auto md:max-w-150 md:p-0">
+	<div class="flex flex-col gap-16 md:py-16">
 		<Introduction t={t} />
 		<Projects t={t} />
 	</div>
 </main>
-
-<style>
-	main {
-		padding: 8px;
-
-		& > div {
-			display: flex;
-			flex-direction: column;
-			gap: 64px;
-
-			@media (width >= 600px) {
-				padding-block: 64px;
-			}
-		}
-
-		@media (width >= 600px) {
-			max-width: 600px;
-			margin-inline: auto;
-			padding: 0;
-		}
-	}
-
-	h2 {
-		color: var(--text-secondary);
-	}
-</style>

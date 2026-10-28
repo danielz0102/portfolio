@@ -5,13 +5,13 @@ import type { AstroComponentFactory } from "astro/runtime/server/index.js"
 import type { Translations } from "../i18n"
 import ExternalLink from "../icons/ExternalLink.astro"
 import GitHub from "../icons/GitHub.astro"
+import Link from "./Link.astro"
 
 interface Props {
 	title: string
 	description: string
 	image: {
 		data: ImageMetadata
-		left?: boolean
 	}
 	stack: { name: string; Icon: AstroComponentFactory }[]
 	preview: string
@@ -22,77 +22,26 @@ interface Props {
 const { title, description, image, stack, preview, github, t } = Astro.props
 ---
 
-<article>
-	<h3>{title}</h3>
-	<Image
-		src={image.data}
-		alt=""
-		class:list={["cover", image.left && "left" ]}
-	/>
-	<ul class="stack">
+<article class="flex flex-col gap-4 rounded">
+	<h3 class="text-2xl">{title}</h3>
+	<Image src={image.data} alt="" class="max-h-100 object-cover rounded" />
+	<ul class="flex flex-wrap gap-4">
 		{stack.map(({ name, Icon }) => (
-			<li>
+			<li class="flex items-center gap-1">
 				<Icon />
 				<span>{name}</span>
 			</li>
 		))}
 	</ul>
-	<p>{description}</p>
-	<footer>
-		<a class="link" href={github} target="_blank" rel="noreferrer">
+	<p class="text-foreground-secondary">{description}</p>
+	<footer class="flex items-center gap-4">
+		<Link href={github} target="_blank" rel="noreferrer">
 			<GitHub />
 			GitHub
-		</a>
-		<a class="link" href={preview} target="_blank" rel="noreferrer">
+		</Link>
+		<Link href={preview} target="_blank" rel="noreferrer">
 			<ExternalLink />
 			{t.preview}
-		</a>
+		</Link>
 	</footer>
 </article>
-
-<style>
-	h3 {
-		font-size: 1.5rem;
-		font-weight: 500;
-	}
-
-	article {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-		border-radius: 4px;
-	}
-
-	.stack {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 16px;
-		padding: 0;
-
-		& > li {
-			display: flex;
-			align-items: center;
-			gap: 4px;
-		}
-	}
-
-	.cover {
-		max-height: 400px;
-		object-fit: cover;
-		border-radius: 8px;
-	}
-
-	.left {
-		object-position: 0% 0%;
-	}
-
-	p {
-		color: var(--text-secondary);
-	}
-
-	footer {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-	}
-</style>

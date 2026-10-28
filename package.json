@@ -14,7 +14,9 @@
 		"format": "biome format --write"
 	},
 	"dependencies": {
-		"astro": "7.4.2"
+		"@tailwindcss/vite": "^4.3.3",
+		"astro": "7.4.2",
+		"tailwindcss": "^4.3.3"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.3",

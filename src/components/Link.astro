@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+interface Props extends HTMLAttributes<"a"> {}
+
+const { class: className, ...props } = Astro.props
+---
+
+<!-- biome-ignore lint/a11y/useAnchorContent: Content should be passed via props -->
+<!-- biome-ignore lint/a11y/useValidAnchor: Href should be passed via props -->
+<a
+	{...props}
+	class:list={[className, "inline-flex items-center gap-2 no-underline text-inherit bg-surface px-4 py-2 rounded hover:opacity-75"]}
+>
+	<slot />
+</a>

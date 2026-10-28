@@ -22,8 +22,8 @@ const { t } = Astro.props
 ---
 
 <section>
-	<h2>{t.projects}</h2>
-	<div>
+	<h2 class="text-4xl mb-4 text-foreground font-bold">{t.projects}</h2>
+	<div class="flex flex-col gap-8">
 		<ProjectCard
 			title="Clever CSS"
 			description={t.cleverCSSDesc}
@@ -39,7 +39,7 @@ const { t } = Astro.props
 		<ProjectCard
 			title="Linku"
 			description={t.linkuDesc}
-			image={{data: linku, left: true}}
+			image={{ data: linku }}
 			github="https://github.com/danielz0102/linku"
 			preview="https://linku-web-eight.vercel.app/"
 			stack={[
@@ -57,7 +57,7 @@ const { t } = Astro.props
 		<ProjectCard
 			title="Shingeki Memo"
 			description={t.shingekiMemoDesc}
-			image={{data: shingekiMemo }}
+			image={{ data: shingekiMemo }}
 			github="https://github.com/danielz0102/shingeki-memo"
 			preview="https://shingeki-memo.vercel.app/"
 			stack={[
@@ -67,16 +67,3 @@ const { t } = Astro.props
 		/>
 	</div>
 </section>
-
-<style>
-	h2 {
-		font-size: 2rem;
-		margin-bottom: 8px;
-	}
-
-	div {
-		display: flex;
-		flex-direction: column;
-		gap: 32px;
-	}
-</style>

@@ -1,6 +1,8 @@
 ---
 import { Font } from "astro:assets"
 import LanguageSwitcher from "../components/LanguageSwitcher.astro"
+
+import "../styles/global.css"
 ---
 
 <!doctype html>
@@ -10,12 +12,13 @@ import LanguageSwitcher from "../components/LanguageSwitcher.astro"
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<link rel="icon" href="/favicon.ico">
-		<Font cssVariable="--main-font" />
+		<Font cssVariable="--font-main" />
 		<meta name="generator" content={Astro.generator}>
 		<title>Daniel Zambrano</title>
 	</head>
-	<body>
+	<body class="font-main p-2 bg-background text-foreground">
 		<LanguageSwitcher />
+
 		<svg style="display: none;" aria-hidden="true">
 			<filter id="grain">
 				<feTurbulence
@@ -27,102 +30,12 @@ import LanguageSwitcher from "../components/LanguageSwitcher.astro"
 				<feColorMatrix type="saturate" values="0" />
 			</filter>
 		</svg>
+
 		<slot />
 	</body>
 </html>
 
-<style is:global>
-	*,
-	*::before,
-	*::after {
-		box-sizing: border-box;
-	}
-
-	*:not(dialog) {
-		margin: 0;
-	}
-
-	@media (prefers-reduced-motion: no-preference) {
-		html {
-			interpolate-size: allow-keywords;
-		}
-	}
-
-	body {
-		line-height: 1.5;
-	}
-
-	img,
-	picture,
-	video,
-	canvas,
-	svg {
-		display: block;
-		max-width: 100%;
-	}
-
-	input,
-	button,
-	textarea,
-	select {
-		font: inherit;
-	}
-
-	p,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		overflow-wrap: break-word;
-	}
-
-	p {
-		text-wrap: pretty;
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		text-wrap: balance;
-	}
-</style>
-
-<style is:global>
-	:root {
-		--bg: oklch(18% 0.005 285.823);
-		--text: oklch(from var(--bg) calc(l + 0.77) c h);
-		--text-secondary: oklch(from var(--text) calc(l - 0.2) c h);
-	}
-
-	.link {
-		display: inline-flex;
-		align-items: center;
-		gap: 8px;
-		text-decoration: none;
-		color: inherit;
-		background-color: oklch(from var(--bg) calc(l + 0.2) c h);
-		padding: 8px 16px;
-		border-radius: 8px;
-
-		&:hover {
-			opacity: 0.75;
-		}
-	}
-</style>
-
 <style>
-	body {
-		font-family: var(--main-font);
-		padding: 8px;
-		background-color: var(--bg);
-		color: var(--text);
-	}
-
 	body::before {
 		content: "";
 		position: fixed;
