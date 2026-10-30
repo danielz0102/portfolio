@@ -1,4 +1,7 @@
 {
+	"metadata": {
+		"description": "Soy Daniel Zambrano, un desarrollador de software de México. Hago aplicaciones frontend y backend con TypeScript."
+	},
 	"jobTitle": "Desarrollador de Software",
 	"intro1": "Hola! Soy de México",
 	"intro2": "y hago aplicaciones frontend y backend con TypeScript",

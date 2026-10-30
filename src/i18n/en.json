@@ -1,4 +1,7 @@
 {
+	"metadata": {
+		"description": "I'm Daniel Zambrano, a software developer from México. I build frontend and backend applications with TypeScript."
+	},
 	"jobTitle": "Software Developer",
 	"intro1": "Hi! I'm from México",
 	"intro2": "and I built frontend and backend applications with TypeScript",

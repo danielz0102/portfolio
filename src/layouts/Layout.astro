@@ -3,6 +3,9 @@ import { Font } from "astro:assets"
 import LanguageSwitcher from "../components/LanguageSwitcher.astro"
 
 import "../styles/global.css"
+import { getTranslations, type Locale } from "../i18n"
+
+const t = getTranslations(Astro.currentLocale as Locale)
 ---
 
 <!doctype html>
@@ -13,6 +16,7 @@ import "../styles/global.css"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<Font cssVariable="--font-main" />
 		<meta name="generator" content={Astro.generator}>
+		<meta name="description" content={t.metadata.description}>
 		<title>Daniel Zambrano</title>
 	</head>
 	<body class="font-main p-2 bg-background text-foreground">
