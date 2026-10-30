@@ -37,7 +37,7 @@ const { title, description, image, stack, preview, github, t } = Astro.props
 	<footer class="flex items-center gap-4">
 		<Link href={github} target="_blank" rel="noreferrer">
 			<GitHub />
-			GitHub
+			{t.repository}
 		</Link>
 		<Link href={preview} target="_blank" rel="noreferrer">
 			<ExternalLink />
