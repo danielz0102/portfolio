@@ -1,0 +1,81 @@
+---
+import { IconCheck, IconMail } from "@tabler/icons-astro"
+import type { Translations } from "../i18n"
+
+interface Props {
+	t: Translations
+}
+
+const { t } = Astro.props
+const email = "danyzglez@gmail.com"
+---
+
+<div class="group inline-flex" data-email-copy>
+	<button
+		type="button"
+		data-email={email}
+		data-success={t.emailCopied}
+		aria-label={`${t.email}: ${email}`}
+		class="email-copy inline-flex cursor-pointer items-center gap-2 rounded bg-surface px-4 py-2 text-inherit transition-colors duration-300 hover:opacity-75 group-data-copied:bg-emerald-600 group-data-copied:text-white group-data-copied:hover:opacity-100"
+	>
+		<span class="inline-flex group-data-copied:hidden">
+			<IconMail aria-hidden="true" stroke-width="1.5" />
+		</span>
+		<span class="hidden group-data-copied:inline-flex">
+			<IconCheck aria-hidden="true" stroke-width="1.5" />
+		</span>
+		<span class="group-data-copied:hidden">{t.email}</span>
+		<span class="hidden group-data-copied:inline">{t.emailCopied}</span>
+	</button>
+
+	<span
+		class="sr-only"
+		role="status"
+		aria-live="polite"
+		data-copy-status
+	></span>
+</div>
+
+<script>
+	const resetDelay = 2000
+	const buttons = document.querySelectorAll<HTMLButtonElement>(".email-copy")
+
+	for (const button of buttons) {
+		const root = button.closest<HTMLElement>("[data-email-copy]")
+		const status = root?.querySelector<HTMLElement>("[data-copy-status]")
+		const email = button.dataset.email
+
+		if (!root || !status || !email) continue
+
+		let timeout: number | undefined
+
+		button.addEventListener("click", async () => {
+			try {
+				await navigator.clipboard.writeText(email)
+			} catch {
+				copyFallback(email)
+			}
+
+			root.dataset.copied = ""
+			status.textContent = button.dataset.success ?? ""
+
+			window.clearTimeout(timeout)
+			timeout = window.setTimeout(() => {
+				delete root.dataset.copied
+				status.textContent = ""
+			}, resetDelay)
+		})
+	}
+
+	function copyFallback(text: string) {
+		const textarea = document.createElement("textarea")
+		textarea.value = text
+		textarea.setAttribute("readonly", "")
+		textarea.style.position = "fixed"
+		textarea.style.opacity = "0"
+		document.body.append(textarea)
+		textarea.select()
+		document.execCommand("copy")
+		textarea.remove()
+	}
+</script>

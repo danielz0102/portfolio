@@ -14,6 +14,7 @@
 		"format": "biome format --write"
 	},
 	"dependencies": {
+		"@tabler/icons-astro": "^3.50.0",
 		"@tailwindcss/vite": "^4.3.3",
 		"astro": "7.4.2",
 		"tailwindcss": "^4.3.3"

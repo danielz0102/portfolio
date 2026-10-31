@@ -6,6 +6,8 @@
 	"intro1": "Hola! Soy de México",
 	"intro2": "y hago aplicaciones frontend y backend con TypeScript",
 	"intro3": "😎",
+	"email": "Email",
+	"emailCopied": "Email copiado al portapapeles",
 	"projects": "Proyectos",
 	"cleverCSSDesc": "Extensión de VS Code que mejora el IntelliSense de CSS.",
 	"linkuDesc": "Chat con autenticación, personalización de perfil y mensajería de texto e imágenes en tiempo real.",
