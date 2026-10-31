@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets"
+import { IconExternalLink } from "@tabler/icons-astro"
 import type { ImageMetadata } from "astro"
 import type { AstroComponentFactory } from "astro/runtime/server/index.js"
 import type { Translations } from "../i18n"
-import ExternalLink from "../icons/ExternalLink.astro"
 import GitHub from "../icons/GitHub.astro"
 import Link from "./Link.astro"
 
@@ -40,7 +40,7 @@ const { title, description, image, stack, preview, github, t } = Astro.props
 			{t.repository}
 		</Link>
 		<Link href={preview} target="_blank" rel="noreferrer">
-			<ExternalLink />
+			<IconExternalLink stroke-width="1.5" />
 			{t.preview}
 		</Link>
 	</footer>
